@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PDMS</string>
+    <string name="title_activity_my">PDMS</string>
+    <string name="title_activity_code">Code Sharing</string>
+</resources>
