@@ -58,7 +58,7 @@ public class SplashActivity extends AppCompatActivity {
         Retrofit retrofit = builder.build();
         final String sharingCode = System.currentTimeMillis() + "";  // generating the sharing code
         DeviceResponse deviceResponse = retrofit.create(DeviceResponse.class);
-        AddDevice addDevice = new AddDevice("TWljcm9uaXgyMDE5RmxlZXQ=",
+        AddDevice addDevice = new AddDevice(Constants.api_secret_key,
                 androidId,
                 sharingCode);
         Call<AddDeviceResponse> call = deviceResponse.addDevice(addDevice);

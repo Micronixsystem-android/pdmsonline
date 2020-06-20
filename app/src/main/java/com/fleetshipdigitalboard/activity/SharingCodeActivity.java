@@ -64,7 +64,7 @@ public class SharingCodeActivity extends AppCompatActivity {
         Retrofit retrofit = builder.build();
         String androidId = Settings.Secure.getString(getContentResolver(),
                 Settings.Secure.ANDROID_ID);
-        StatusRequest request = new StatusRequest("TWljcm9uaXgyMDE5RmxlZXQ=", androidId);
+        StatusRequest request = new StatusRequest(Constants.api_secret_key, androidId);
         DeviceResponse deviceResponse = retrofit.create(DeviceResponse.class);
         Call<StatusModel> call = deviceResponse.check(request);
         call.enqueue(new Callback<StatusModel>() {

@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClientBuilder.build());
         Retrofit retrofit = builder.build();
-        ContentStatusRequest request = new ContentStatusRequest("TWljcm9uaXgyMDE5RmxlZXQ=", deviceId);
+        ContentStatusRequest request = new ContentStatusRequest(Constants.api_secret_key, deviceId);
         DeviceResponse deviceResponse = retrofit.create(DeviceResponse.class);
         Call<ContentStatusResponse> call = deviceResponse.content(request);
         call.enqueue(new Callback<ContentStatusResponse>() {
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = builder.build();
         String androidId = Settings.Secure.getString(getContentResolver(),
                 Settings.Secure.ANDROID_ID);
-        StatusRequest request = new StatusRequest("TWljcm9uaXgyMDE5RmxlZXQ=", androidId);
+        StatusRequest request = new StatusRequest(Constants.api_secret_key, androidId);
         DeviceResponse deviceResponse = retrofit.create(DeviceResponse.class);
         Call<StatusModel> call = deviceResponse.check(request);
         call.enqueue(new Callback<StatusModel>() {
@@ -545,7 +545,7 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClientBuilder.build());
         Retrofit retrofit = builder.build();
-        UpdateStatusRequest request = new UpdateStatusRequest("TWljcm9uaXgyMDE5RmxlZXQ=", deviceId, status);
+        UpdateStatusRequest request = new UpdateStatusRequest(Constants.api_secret_key, deviceId, status);
         DeviceResponse deviceResponse = retrofit.create(DeviceResponse.class);
         Call<UpdateStatusResponse> call = deviceResponse.update(request);
         call.enqueue(new Callback<UpdateStatusResponse>() {
@@ -858,7 +858,7 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClientBuilder.build());
         Retrofit retrofit = builder.build();
-        SliderDurationRequest request = new SliderDurationRequest("TWljcm9uaXgyMDE5RmxlZXQ=");
+        SliderDurationRequest request = new SliderDurationRequest(Constants.api_secret_key);
         DeviceResponse deviceResponse = retrofit.create(DeviceResponse.class);
         Call<SliderDurationResponse> call = deviceResponse.duration(request);
         call.enqueue(new Callback<SliderDurationResponse>() {
